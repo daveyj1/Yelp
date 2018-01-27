@@ -26,7 +26,7 @@ class BusinessCell: UITableViewCell {
             descriptionLabel.text = business.categories
             addressLabel.text = business.address
             distanceLabel.text = business.distance
-            reviewLabel.text = "\(business.reviewCount!)"
+            reviewLabel.text = "\(business.reviewCount!) Reviews"
             ratingImage.setImageWith(business.ratingImageURL!)
         }
     }
@@ -34,6 +34,8 @@ class BusinessCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        photoView.layer.cornerRadius = 5
+        photoView.clipsToBounds = true
         // Initialization code
     }
 

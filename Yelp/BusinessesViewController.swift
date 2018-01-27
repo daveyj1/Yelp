@@ -18,6 +18,10 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 140
+        navigationController?.navigationBar.barTintColor = UIColor.red
+        
         tableView.delegate = self
         tableView.dataSource = self
         
