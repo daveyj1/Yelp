@@ -22,7 +22,9 @@ class BusinessCell: UITableViewCell {
     var business: Business! {
         didSet {
             nameLabel.text = business.name
-            photoView.setImageWith(business.imageURL!)
+            if business.imageURL != nil {
+                photoView.setImageWith(business.imageURL!)
+            }
             descriptionLabel.text = business.categories
             addressLabel.text = business.address
             distanceLabel.text = business.distance
@@ -36,7 +38,12 @@ class BusinessCell: UITableViewCell {
         super.awakeFromNib()
         photoView.layer.cornerRadius = 5
         photoView.clipsToBounds = true
-        // Initialization code
+        nameLabel.preferredMaxLayoutWidth = nameLabel.frame.size.width
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        nameLabel.preferredMaxLayoutWidth = nameLabel.frame.size.width
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
